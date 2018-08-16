@@ -14,6 +14,10 @@ class App extends Component {
     }
   }
 
+  toggleComplete (todo) {
+    todo.complete = !todo.complete
+  }
+
   onChange (e) {
     this.props.store.filter = e.target.value
   }
@@ -21,7 +25,11 @@ class App extends Component {
   render() {
     const { filter, filteredTodos, todos } = this.props.store
     const todoLis = filteredTodos.map(todo => {
-      return <li>{todo}</li>
+      return (
+      <li key={todo.id}>
+        <input type="checkbox" key={todo.id} value={todo.complete} checked={todo.complete} onChange={this.toggleComplete.bind(this, todo)} />{todo.value}
+      </li>
+      )
     })
 
     return (
