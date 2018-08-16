@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   render() {
-    const { filter, filteredTodos, todos } = this.props.store
+    const { clearComplete, filter, filteredTodos, todos } = this.props.store
     const todoLis = filteredTodos.map(todo => {
       return (
       <li key={todo.id}>
@@ -40,6 +40,7 @@ class App extends Component {
         <label>Search Todos:</label>
         <input className="filter" value={filter} onChange={e => this.onChange(e)} />
         <ul>{todoLis}</ul>
+        <button onClick={clearComplete}>Clear Complete</button>
       </div>
     );
   }

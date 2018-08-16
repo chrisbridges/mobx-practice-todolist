@@ -24,6 +24,12 @@ class TodoStore {
   createTodo(value) {
     this.todos.push(new Todo(value))
   }
+
+  clearComplete = () => {
+    const incompleteTodos = this.todos.filter(todo => !todo.complete)
+    // cannot just overwrite todos - will affect reactivity - use replace method
+    this.todos.replace(incompleteTodos)
+  }
 }
 
 let store = window.store = new TodoStore
