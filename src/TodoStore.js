@@ -32,6 +32,6 @@ class TodoStore {
   }
 }
 
-let store = window.store = new TodoStore
+let store = window.store = new TodoStore()
 
 export default store
