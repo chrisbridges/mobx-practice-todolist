@@ -31,7 +31,7 @@ class TodoStore {
     this.todos.replace(incompleteTodos)
   }
 }
-
+// only calling window.store here so we can play with it in the console
 let store = window.store = new TodoStore()
 
 export default store
